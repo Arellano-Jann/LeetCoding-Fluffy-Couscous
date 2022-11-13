@@ -1,6 +1,13 @@
 # Recursive. Too slow.
-Recursive1
+def Recursive1climbStairs(self, n: int) -> int:
+    def dp(current):
+        if current == 0 or current == 1:
+            return 1
+        return dp(current-1) + dp(current-2)
+    
+    return dp(n)
 
+# Recursive Second Implementation
 def Recursive2climbStairs(self, n: int) -> int:
     def recurse(current):
         if current == n:
