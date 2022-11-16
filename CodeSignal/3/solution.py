@@ -63,17 +63,21 @@ def solution(queryType, query):
     for command, param in zip(queryType, query):
         x = param[0]
         y = param[-1]
-        if command == 'insert':
+        if command == 'insert': # keeps the key in the normal place it would've been in the array if we weren't adding an int to all keys
             # insert(param[0], param[1])
             hashmap[x-total_key] = y - total_val
+            # x - total_key adjusts the input key back to where it would be unadjusted. this has the property of then making sure that all keys are unique because the same operation is being subtracted from all of them and it only affects the keys that it wants to affects because total_key dynamically changes
+            # y - total_val adjusts the input value to be a true input value. this has the same properties as above
         if command == 'get':
             # get(param[0])
             total_get += hashmap[x - total_key] + total_val
+            # x - total_key makes sure we get the correct key since the adjustments of total_key is dynamic, this always gets the desired key
+            # total_val is added because the true value is stored in the hashmap. adding 5 to all values means adding 5 to the true value either at the end or the start. the operations are the same
         if command == 'addToKey':
             # addToKey(param[0])
-            total_key += x
+            total_key += x # adjusts the modifier of the keys
         if command == 'addToValue':
             # addToValue(param[0])
             total_val += x
 
-    return total_get
+    return total_get # asks for the sum of all get commands
