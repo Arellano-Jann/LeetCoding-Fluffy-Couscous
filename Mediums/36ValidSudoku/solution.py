@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/valid-sudoku/
 def isValidSudoku(self, board: List[List[str]]) -> bool:
     # rows and column checker
     all_rows = collections.defaultdict(set)
