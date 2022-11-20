@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/rotting-oranges/description/
-def orangesRotting(self, grid: List[List[int]]) -> int:
+def orangesRotting(grid: List[List[int]]) -> int:
     infectious = [] # implemented as a deque in python
     time = good = 0
     # count good and bad oranges
